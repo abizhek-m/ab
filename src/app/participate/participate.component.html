@@ -1,0 +1,57 @@
+<section>
+    <div class="login-box">
+      <form [formGroup]="form" (ngSubmit)="onSubmit()" #formElement="ngForm">
+        <h2>Hiring</h2>
+        <div class="input-box">
+          <input type="text" formControlName="name" required>
+          <label>Name</label>
+        </div>
+        <div class="input-box">
+          <input type="number" formControlName="age" required [min]="0">
+          <label>Age</label>
+        </div>
+        <div class="input-box">
+          <input type="email" formControlName="email" required>
+          <label>Email</label>
+        </div>
+        <div class="input-box">
+          <input type="tel" formControlName="phone_number" required>
+          <label>Contact Number</label>
+        </div>
+        <div class="input-box">
+          <select formControlName="educational_qualification" required>
+            <option value="" disabled selected>Select educational qualification</option>
+            <option value="B.E">B.E</option>
+            <option value="B.Tech">B.Tech</option>
+            <option value="B.Sc">B.Sc</option>
+            <option value="B.A">B.A</option>
+            <option value="M.E">M.E</option>
+            <option value="M.Tech">M.Tech</option>
+            <option value="M.Sc">M.Sc</option>
+            <option value="M.A">M.A</option>
+            <option value="PhD">PhD</option>
+          </select>
+          <label>Educational Qualification</label>
+        </div>
+        <div class="input-box">
+          <input type="text" formControlName="degree" required>
+          <label>branch</label>
+        </div>
+        <div class="input-box">
+          <input type="number" formControlName="years_of_experience" required [min]="0">
+          <label>Experience(Years)</label>
+        </div>
+        <div class="input-box">
+          <input type="file" (change)="onFileSelect($event)">
+          <label>Upload Image</label>
+        </div>
+        <div class="input-box remember-me">
+          <label>
+            <input type="checkbox" formControlName="remember">Remember Me
+          </label>
+        </div>
+        <button type="submit" routerLink="/End" class="nav-link-active" [disabled]="loading || formElement.invalid">{{ loading ? 'Loading...' : 'Submit' }}</button>
+      </form>
+    </div>
+  </section>
+  
